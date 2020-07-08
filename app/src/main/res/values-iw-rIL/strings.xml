@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MSApps Test</string>
+    <string name="loading">טוען . . .</string>
+    <string name="error_occurred">אירעה שגיאה</string>
+    <string name="title">"שם הכותר: "</string>
+    <string name="release_year">"שנת יציאה: "</string>
+    <string name="rating">"דירוג: "</string>
+    <string name="genre">"ז'אנר: "</string>
+    <string name="camera_permissions_denied">יש להעניק הרשאת שימוש במצלמה על מנת לסרוק קוד QR</string>
+    <string name="movie_already_exist">הסרט הנוכחי כבר קיים במאגר המידע</string>
+</resources>
