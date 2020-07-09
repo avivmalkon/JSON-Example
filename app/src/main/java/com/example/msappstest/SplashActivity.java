@@ -44,6 +44,7 @@ public class SplashActivity extends AppCompatActivity
         else
         {
             startActivity(movie_list_intent);
+            finish();
         }
     }
 
@@ -111,6 +112,7 @@ public class SplashActivity extends AppCompatActivity
                         databaseHelper.close();
 
                         startActivity(movie_list_intent);
+                        finish();
                     }
                 }, new Response.ErrorListener() {
             @Override
