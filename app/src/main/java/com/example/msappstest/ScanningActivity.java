@@ -22,6 +22,7 @@ public class ScanningActivity extends AppCompatActivity implements ZXingScannerV
 {
     private ZXingScannerView scannerView;
     Intent movieListIntent;
+    int new_item_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -42,6 +43,7 @@ public class ScanningActivity extends AppCompatActivity implements ZXingScannerV
     public void handleResult(Result rawResult) {
         addMovieToDatabase(rawResult.getText());
         movieListIntent = new Intent(ScanningActivity.this, MovieListActivity.class);
+        movieListIntent.putExtra("new_item_id", new_item_id);
         startActivity(movieListIntent);
     }
 
@@ -79,7 +81,8 @@ public class ScanningActivity extends AppCompatActivity implements ZXingScannerV
             }
             else
             {
-                if(! databaseHelper.add_movie(movie))
+                new_item_id = databaseHelper.add_movie(movie);
+                if(new_item_id == -1)
                     Log.i("ScanningActivity Errors", "Error at adding movie to DataBase");
                 databaseHelper.close();
             }

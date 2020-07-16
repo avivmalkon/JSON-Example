@@ -19,7 +19,7 @@
 
         <activity
             android:name=".ScanningActivity"
-            android:launchMode="singleInstance"
+
             />
 
         <activity
@@ -28,7 +28,7 @@
 
         <activity
             android:name=".MovieListActivity"
-            android:launchMode="singleInstance"
+
             />
 
         <activity

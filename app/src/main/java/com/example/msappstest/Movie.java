@@ -20,9 +20,6 @@ public class Movie
         this.genre = genre;
     }
 
-    public Movie() {
-    }
-
 
     @NonNull
     @Override
@@ -51,23 +48,28 @@ public class Movie
         return genre;
     }
 
-    public void setTitle(String title) {
+    /*public void setTitle(String title)
+    {
         this.title = title;
     }
 
-    public void setImageURL(String imageURL) {
+    public void setImageURL(String imageURL)
+    {
         this.imageURL = imageURL;
     }
 
-    public void setRating(double rating) {
+    public void setRating(double rating)
+    {
         this.rating = rating;
     }
 
-    public void setReleaseYear(int releaseYear) {
+    public void setReleaseYear(int releaseYear)
+    {
         this.releaseYear = releaseYear;
     }
 
-    public void setGenre(String genre) {
+    public void setGenre(String genre)
+    {
         this.genre = genre;
-    }
+    }*/
 }

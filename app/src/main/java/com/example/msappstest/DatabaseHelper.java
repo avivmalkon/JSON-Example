@@ -1,4 +1,5 @@
 package com.example.msappstest;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -69,7 +70,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         return false;
     }
 
-    public boolean add_movie(Movie movie)
+    public int add_movie(Movie movie)
     {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -84,7 +85,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
         sqLiteDatabase.close();
 
-        return result != -1;
+        return (int)result;
     }
 
     public List<Movie> getMovies()

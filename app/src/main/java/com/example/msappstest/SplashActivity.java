@@ -87,7 +87,7 @@ public class SplashActivity extends AppCompatActivity
 
                                 movie = new Movie(title, imageUrl, rating, releaseYear, genreStr);
 
-                                if(! databaseHelper.add_movie(movie))
+                                if(databaseHelper.add_movie(movie) == -1)
                                     error_occurred = true;
 
 

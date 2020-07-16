@@ -1,7 +1,6 @@
 package com.example.msappstest;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,11 +9,13 @@ import android.os.Bundle;
 import android.view.View;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-
 import java.util.List;
 
 public class MovieListActivity extends AppCompatActivity
 {
+    MovieAdapter movieAdapter;
+    //Intent intentForExtras;
+
     private CoordinatorLayout coordinatorLayout;
 
     @Override
@@ -29,7 +30,7 @@ public class MovieListActivity extends AppCompatActivity
         List<Movie> movies = databaseHelper.getMovies();
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        MovieAdapter movieAdapter = new MovieAdapter(MovieListActivity.this, movies);
+        movieAdapter = new MovieAdapter(MovieListActivity.this, movies);
         recyclerView.setAdapter(movieAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -39,7 +40,7 @@ public class MovieListActivity extends AppCompatActivity
             public void onClick(View view) {
                 Intent scanIntent = new Intent(MovieListActivity.this, ScanningActivity.class);
                 startActivity(scanIntent);
-                finish(); //prevents bugs
+                onStop();
             }
         });
 
@@ -66,19 +67,31 @@ public class MovieListActivity extends AppCompatActivity
 
         if(bundle != null)
         {
-            if(bundle.getBoolean("camera_denied", false))
+            if(intentForExtras.getBooleanExtra("camera_denied", false))
             {
                 Snackbar.make(coordinatorLayout, R.string.camera_permissions_denied, Snackbar.LENGTH_LONG).show();
                 intentForExtras.removeExtra("camera_denied");
             }
-            else if(bundle.getBoolean("duplicate_movie"))
+            else
             {
-                Snackbar.make(coordinatorLayout, R.string.movie_already_exist, Snackbar.LENGTH_LONG).show();
-                intentForExtras.removeExtra("duplicate_movie");
+                if(intentForExtras.getBooleanExtra("duplicate_movie", false))
+                {
+                    Snackbar.make(coordinatorLayout, R.string.movie_already_exist, Snackbar.LENGTH_LONG).show();
+                    intentForExtras.removeExtra("duplicate_movie");
+                }
+                
+
+                int position = intentForExtras.getIntExtra("new_item_id", -1);
+
+                if(position != -1)
+                {
+                    // new movie added
+
+                    movieAdapter.notifyItemInserted(position);
+
+                    intentForExtras.removeExtra("new_item_id");
+                }
             }
-
         }
-
-
     }
 }
