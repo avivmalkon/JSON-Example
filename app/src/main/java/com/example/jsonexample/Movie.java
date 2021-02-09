@@ -1,4 +1,4 @@
-package com.example.msappstest;
+package com.example.jsonexample;
 
 import androidx.annotation.NonNull;
 

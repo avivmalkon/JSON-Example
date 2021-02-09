@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.msappstest">
+    package="com.example.jsonexample">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -18,21 +18,21 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".ScanningActivity"
+            android:name="com.example.jsonexample.ScanningActivity"
 
             />
 
         <activity
-            android:name=".MovieDetailsActivity"
+            android:name="com.example.jsonexample.MovieDetailsActivity"
             android:launchMode="singleInstance" />
 
         <activity
-            android:name=".MovieListActivity"
+            android:name="com.example.jsonexample.MovieListActivity"
 
             />
 
         <activity
-            android:name=".SplashActivity"
+            android:name="com.example.jsonexample.SplashActivity"
             android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

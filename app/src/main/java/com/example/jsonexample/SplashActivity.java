@@ -1,4 +1,4 @@
-package com.example.msappstest;
+package com.example.jsonexample;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -24,7 +24,6 @@ public class SplashActivity extends AppCompatActivity
     public static final String DOWNLOADED_KEY = "data downloaded successfully";
 
     RequestQueue requestQueue;
-    StringBuffer movieDetails;
     boolean error_occurred;
     DatabaseHelper databaseHelper;
     SharedPreferences sharedPreferences;
@@ -52,7 +51,6 @@ public class SplashActivity extends AppCompatActivity
     void parse_JSON_to_SQLite()
     {
         requestQueue = Volley.newRequestQueue(this);
-        movieDetails = new StringBuffer();
         error_occurred = false;
         databaseHelper = new DatabaseHelper(SplashActivity.this);
 

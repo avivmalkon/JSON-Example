@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MSApps Test</string>
+    <string name="app_name">JSON Example</string>
     <string name="loading">טוען . . .</string>
     <string name="error_occurred">אירעה שגיאה</string>
     <string name="title">"שם הכותר: "</string>

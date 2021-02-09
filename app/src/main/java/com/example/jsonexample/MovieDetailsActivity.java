@@ -1,4 +1,4 @@
-package com.example.msappstest;
+package com.example.jsonexample;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
